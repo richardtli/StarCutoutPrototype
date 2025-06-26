@@ -6,9 +6,9 @@
 }
 
 :root {
-    --thewidth: 60vw;
+    --thewidth: 65vw;
     --theheight: calc(9 / 16 * var(--thewidth));
-    --frame: 15;
+    --frame: 10;
 }
 
 body {
@@ -59,23 +59,29 @@ body {
     right: 0;
     will-change: left, top, transform, background-image, scroll-position;
 }
+.frame {
+    border-color: rgb(34, 34, 34);
+    border-style: solid;
+    border-width: calc(0.08*var(--thewidth));
+    z-index: var(--frame);
+}
 
 .layer1 {
     background-image: url("Images/New/Paint\ Layer\ 1.PNG");
-    z-index: 14;
+    z-index: var(--frame);
 }
 
 .layer2 {
     background-image: url("Images/New/Paint\ Layer\ 2.PNG");
-    z-index: 12;
+    z-index: 9;
 }
 .layer3 {
     background-image: url("Images/New/Paint\ Layer\ 3.PNG");
-    z-index: 10;
+    z-index: 8;
 }
 .layer4 {
     background-image: url("Images/New/Paint\ Layer\ 4.PNG");
-    z-index: 8;
+    z-index: 7;
 }
 .layer5 {
     background-image: url("Images/New/Paint\ Layer\ 5.PNG");
@@ -84,12 +90,12 @@ body {
 
 .moon {
     background-image: url("Images/New/Moon.PNG");
-    z-index: 4;
+    z-index: 5;
 }
 
 .background {
     background-image: url("Images/New/Background.PNG");
-    z-index: 2;
+    z-index: 4;
 }
 
 
