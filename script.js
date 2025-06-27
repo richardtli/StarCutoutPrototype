@@ -42,6 +42,33 @@ container.addEventListener("mousemove", (event) => {
     }turn)`;
   });
 });
+container.addEventListener("touchmove", (event) => {
+  let touch = event.touches[0];
+  
+    // Get the X and Y coordinates
+    let touchX = touch.pageX;
+    let touchY = touch.pageY;
+  
+  images.forEach((image) => {
+    image.style.transform = `rotateX(${
+      ROTATEX_FACTOR *
+      ((window.getComputedStyle(image).zIndex *
+        Z_INDEX_FACTOR *
+        (touchY - yCalibration)) /
+        containerHeight)
+    }turn) rotateY(${
+      (ROTATEY_FACTOR *
+        window.getComputedStyle(image).zIndex *
+        Z_INDEX_FACTOR *
+        (touchX - xCalibration)) /
+      containerWidth
+    }turn)`;
+  });
+});
+
+
+
+
 
 container.addEventListener("mouseleave", () => {
   images.forEach((image) => {
@@ -52,8 +79,18 @@ container.addEventListener("mouseleave", () => {
   });
 });
 
+container.addEventListener("touchend", () => {
+  images.forEach((image) => {
+    image.style.transition = "transform 1s ease-out";
+  });
+  images.forEach((image) => {
+    image.style.transform = "none";
+  });
+});
+
+
+
 container.addEventListener("mouseenter", () => {
-  console.log("mouseenter");
   containerLocation = container.getBoundingClientRect();
   containerHeight = container.offsetHeight;
   containerWidth = container.offsetWidth;
@@ -63,3 +100,13 @@ container.addEventListener("mouseenter", () => {
     image.style.transition = "transform 0.2s ease-out";
   });
 });
+
+container.addEventListener("touchstart", () => {
+  
+  images.forEach((image) => {
+    image.style.transition = "transform 0.1s ease-out";
+  });
+});
+
+
+

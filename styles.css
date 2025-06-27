@@ -5,8 +5,12 @@
     padding: 0;
 }
 
+html, body {
+  touch-action: none; /* Disables all touch actions, like scrolling and zooming */
+}
+
 :root {
-    --thewidth: 65vw;
+    --thewidth: 50vw;
     --theheight: calc(9 / 16 * var(--thewidth));
     --frame: 10;
 }
@@ -18,7 +22,7 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: rgb(0, 255, 187);
+    background-color: rgb(139, 255, 224);
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -158,7 +162,6 @@ body {
     filter: none;
 }
 
-
 .disclaimer{
     font-family: "Roboto";
     position: absolute;
@@ -166,4 +169,36 @@ body {
     bottom: 5px;
     left: 5px;
     font-weight: bold;
+}
+.orientation-disclaimer{
+    display: none;
+}
+
+
+
+
+@media (max-width: 1000px) {
+    @media (orientation: portrait){
+        .orientation-disclaimer{
+        display: flex;
+        font-family: "Roboto";
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        z-index: 100;
+        color: white;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+}
+    }
+    .disclaimer{
+        display: none;
+    }
+    .toggleButton{
+        display: none;
+    }
+
 }
